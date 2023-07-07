@@ -1,32 +1,6 @@
-INSERT INTO license_category (category)
-VALUES ('A');
-INSERT INTO license_category (category)
-VALUES ('A1');
-INSERT INTO license_category (category)
-VALUES ('B');
-INSERT INTO license_category (category)
-VALUES ('BE');
-INSERT INTO license_category (category)
-VALUES ('B1');
-INSERT INTO license_category (category)
-VALUES ('C');
-INSERT INTO license_category (category)
-VALUES ('CE');
-INSERT INTO license_category (category)
-VALUES ('C1');
-INSERT INTO license_category (category)
-VALUES ('C1E');
-INSERT INTO license_category (category)
-VALUES ('D');
-INSERT INTO license_category (category)
-VALUES ('DE');
-INSERT INTO license_category (category)
-VALUES ('D1');
-INSERT INTO license_category (category)
-VALUES ('D1E');
-INSERT INTO license_category (category)
-VALUES ('M');
-INSERT INTO license_category (category)
-VALUES ('Tm');
-INSERT INTO license_category (category)
-VALUES ('Tb');
+INSERT INTO license_category (category) VALUES ('A'),('A1'),('B'),('BE'),('B1'),('C'),('CE'),('C1'),('C1E'),('D'),('DE'),('D1'),('D1E'),('M'),('Tm'),('Tb');
+INSERT INTO details (name, serial_number) VALUES ('Двигатель', '11AA22');
+INSERT INTO details (name, serial_number) VALUES ('Двигатель', '11BB22');
+INSERT INTO details (name, serial_number) VALUES ('Колесо', 'BB11CC');
+INSERT INTO details (name, serial_number) VALUES ('Колесо', 'BB22CC');
+INSERT INTO details (name, serial_number) VALUES ('Колесо', 'BB44CC');

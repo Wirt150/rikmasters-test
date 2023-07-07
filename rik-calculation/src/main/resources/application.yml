@@ -1,0 +1,35 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: rik-calculation
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rikmasters-db
+    driver-class-name: org.postgresql.Driver
+    username: root
+    password: root
+
+logging:
+  level:
+    org:
+      springframework:
+        web: info
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

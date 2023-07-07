@@ -1,63 +1,66 @@
-#version: '3.1'
-#services:
-#
-#  vita-db:
-#    image: postgres:14-alpine
-#    container_name: vita-db
-#    ports:
-#      - "6541:5432"
-#    environment:
-#      - POSTGRES_DB=vita-db-test
-#      - POSTGRES_USER=root
-#      - POSTGRES_PASSWORD=root
-#
-#  vita-eureka:
-#    build: vita-eureka
-#    container_name: vita_eureka
-#    ports:
-#      - "8761:8761"
-#      - "8762:8762"
-#
-#  vita-gateway:
-#    build: vita-gateway
-#    container_name: vita_gateway
-#    ports:
-#      - "8080:8080"
-#      - "8081:8081"
-#    depends_on:
-#      - vita-eureka
-#    environment:
-#      eureka.client.serviceUrl.defaultZone: http://vita-eureka:8761/eureka/
-#
-#  vita-service:
-#    build: vita-service
-#    container_name: vita_service
-#    ports:
-#      - "8090:8090"
-#      - "8091:8091"
-#    depends_on:
-#      - vita-db
-#      - vita-eureka
-#      - vita-gateway
-#    environment:
-#      eureka.client.serviceUrl.defaultZone: http://vita-eureka:8761/eureka/
-#      spring.datasource.url: jdbc:postgresql://vita-db:5432/vita-db-test
-#      spring.datasource.username: root
-#      spring.datasource.password: root
-#
-#  vita-auth:
-#    build: vita-auth
-#    container_name: vita_auth
-#    ports:
-#      - "8085:8085"
-#      - "8086:8086"
-#    depends_on:
-#      - vita-db
-#      - vita-eureka
-#      - vita-service
-#      - vita-gateway
-#    environment:
-#      eureka.client.serviceUrl.defaultZone: http://vita-eureka:8761/eureka/
-#      spring.datasource.url: jdbc:postgresql://vita-db:5432/vita-db-test
-#      spring.datasource.username: root
-#      spring.datasource.password: root
+version: '3.1'
+services:
+
+  rik-db:
+    image: postgres:15.3
+    container_name: rik-db
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=rik-db-test
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+
+  rik-eureka:
+    build: rik-eureka
+    container_name: rik_eureka
+    ports:
+      - "8761:8761"
+      - "8762:8762"
+
+  rik-gateway:
+    build: rik-gateway
+    container_name: rik_gateway
+    restart: always
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - rik-eureka
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://rik-eureka:8761/eureka/
+
+  rik-service:
+    build: rik-service
+    container_name: rik_service
+    restart: always
+    ports:
+      - "8090:8090"
+      - "8091:8091"
+    depends_on:
+      - rik-db
+      - rik-eureka
+      - rik-gateway
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://rik-eureka:8761/eureka/
+      spring.datasource.url: jdbc:postgresql://rik-db:5432/rik-db-test
+      spring.datasource.username: root
+      spring.datasource.password: root
+
+  rik-auth:
+    build: rik-calculation
+    container_name: rik_calculation
+    restart: always
+    ports:
+      - "8085:8085"
+      - "8086:8086"
+    depends_on:
+      - rik-db
+      - rik-eureka
+      - rik-gateway
+      - rik-service
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://rik-eureka:8761/eureka/
+      spring.datasource.url: jdbc:postgresql://rik-db:5432/rik-db-test
+      spring.datasource.username: root
+      spring.datasource.password: root

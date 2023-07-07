@@ -1,0 +1,1023 @@
+{
+	"info": {
+		"_postman_id": "9cb651c7-6be3-4255-8150-b8d058848d9b",
+		"name": "Rik Masters Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22497105"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Создание пользователя 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Олег Викторович Цой\",\r\n    \"passport\": \"91 91 123456\",\r\n    \"birthday\": \"1990-01-01\",\r\n    \"drivingExperience\": 5,\r\n    \"userLicense\": [1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Олег Викторович Цой Второй\",\r\n    \"passport\": \"92 92 123456\",\r\n    \"birthday\": \"2010-01-01\",\r\n    \"drivingExperience\": 3,\r\n    \"userLicense\": [1]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск пользователя по id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск всех пользвателей по параметрам",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/user/all?from=0&size=15&sort=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"user",
+								"all"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "15"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								},
+								{
+									"key": "sort",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение статуса акаунта пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/user/1?status=DELETED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"user",
+								"1"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "DELETED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "car",
+			"item": [
+				{
+					"name": "Создание автомобиля 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vin\":\"WAUZZZ44ZEN096063\",\r\n    \"stateNumber\": \"a001aa01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание автомобиля 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vin\":\"RAUZZZ44ZEN096063\",\r\n    \"stateNumber\": \"a002aa02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск автомобиля  по госномеру",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car?stateNumber=a001aa01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car"
+							],
+							"query": [
+								{
+									"key": "stateNumber",
+									"value": "a001aa01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск всех автомобилей по параметрам",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car/all?from=0&size=15&sort=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car",
+								"all"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "15"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								},
+								{
+									"key": "sort",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение статуса акаунта автомобиля",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car/1?status=DELETED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car",
+								"1"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "DELETED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление деталей автомобилю",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "asd",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car/1?detail=1&interaction=add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car",
+								"1"
+							],
+							"query": [
+								{
+									"key": "detail",
+									"value": "1"
+								},
+								{
+									"key": "interaction",
+									"value": "add"
+								},
+								{
+									"key": "interaction",
+									"value": "del",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Привсвоение владельца автомобию",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-service/api/v1/car/1/owner/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-service",
+								"api",
+								"v1",
+								"car",
+								"1",
+								"owner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "calculation",
+			"item": [
+				{
+					"name": "Создание счета 1 для пользователя 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/owner/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"owner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Зачисление денег на счет (красный)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1?sum=5&color=RED&action=ADDITION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							],
+							"query": [
+								{
+									"key": "sum",
+									"value": "5"
+								},
+								{
+									"key": "color",
+									"value": "RED"
+								},
+								{
+									"key": "color",
+									"value": "GREEN",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "BLUE",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "ADDITION"
+								},
+								{
+									"key": "action",
+									"value": "SUBTRACTION",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Зачисление денег на счет (зеленый)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1?sum=5&color=GREEN&action=ADDITION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							],
+							"query": [
+								{
+									"key": "sum",
+									"value": "5"
+								},
+								{
+									"key": "color",
+									"value": "RED",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "GREEN"
+								},
+								{
+									"key": "color",
+									"value": "BLUE",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "ADDITION"
+								},
+								{
+									"key": "action",
+									"value": "SUBTRACTION",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Зачисление денег на счет (синий)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1?sum=5&color=BLUE&action=ADDITION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							],
+							"query": [
+								{
+									"key": "sum",
+									"value": "5"
+								},
+								{
+									"key": "color",
+									"value": "RED",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "GREEN",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "BLUE"
+								},
+								{
+									"key": "action",
+									"value": "ADDITION"
+								},
+								{
+									"key": "action",
+									"value": "SUBTRACTION",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вычитание денег со счета (красный)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1?sum=5&color=RED&action=SUBTRACTION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							],
+							"query": [
+								{
+									"key": "sum",
+									"value": "5"
+								},
+								{
+									"key": "color",
+									"value": "RED"
+								},
+								{
+									"key": "color",
+									"value": "GREEN",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "BLUE",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "ADDITION",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "SUBTRACTION"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вычитание денег со счета (зеленый)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1?sum=2.5&color=GREEN&action=SUBTRACTION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							],
+							"query": [
+								{
+									"key": "sum",
+									"value": "2.5"
+								},
+								{
+									"key": "color",
+									"value": "RED",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "GREEN"
+								},
+								{
+									"key": "color",
+									"value": "BLUE",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "ADDITION",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "SUBTRACTION"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вычитание денег со счета (синий)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1?sum=2.5&color=BLUE&action=SUBTRACTION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							],
+							"query": [
+								{
+									"key": "sum",
+									"value": "2.5"
+								},
+								{
+									"key": "color",
+									"value": "RED",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "GREEN",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "BLUE"
+								},
+								{
+									"key": "action",
+									"value": "ADDITION",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "SUBTRACTION"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Запрос состояния счета",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rik-calculation/api/v1/cash/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rik-calculation",
+								"api",
+								"v1",
+								"cash",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

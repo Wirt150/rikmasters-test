@@ -12,10 +12,10 @@
 	<name>RikMastersTest</name>
 
 	<modules>
-		<!--		<module>vita-eureka</module>-->
-		<!--		<module>vita-gateway</module>-->
-		<!--		<module>vita-auth</module>-->
+		<module>rik-eureka</module>
+		<module>rik-gateway</module>
 		<module>rik-service</module>
+		<module>rik-calculation</module>
 	</modules>
 
 	<groupId>com.example.rikmasters</groupId>
@@ -35,10 +35,10 @@
 		<lombok.version>1.18.26</lombok.version>
 		<lombok.mapstruct.binding.version>0.2.0</lombok.mapstruct.binding.version>
 		<swagger-annotations.version>2.2.8</swagger-annotations.version>
-		<springdoc-openapi-ui.version>1.6.14</springdoc-openapi-ui.version>
+		<springdoc-ui.version>2.0.4</springdoc-ui.version>
 		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
 		<spring-cloud-gateway-server.version>3.1.5</spring-cloud-gateway-server.version>
-		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<spring-cloud.version>2022.0.1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -125,8 +125,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>${springdoc-openapi-ui.version}</version>
+				<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+				<version>${springdoc-ui.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

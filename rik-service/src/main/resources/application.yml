@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: rikmasters-service
+    name: rik-service
   jpa:
     hibernate:
       ddl-auto: create
@@ -27,9 +27,9 @@ logging:
       springframework:
         web: info
 
-#eureka:
-#  instance:
-#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
